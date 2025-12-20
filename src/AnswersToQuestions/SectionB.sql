@@ -4,7 +4,7 @@ USE FoodieFiDB;
 
 -- ============== Question 1 ==============
 
-SELECT COUNT(*) TotalCustomers		--1.Count all rows
+SELECT COUNT(DISTINCT CustomerID) TotalCustomers		--1.Count the unique customer IDs
 FROM Subscriptions;
 
 -- ============== Question 2 ==============
@@ -72,6 +72,7 @@ FROM FreeTrialsTABLE f
 JOIN ChurnAfterTrialTABLE c		--3.JOIN with the FreeTrialsTABLE on CustomerID
 ON f.CustomerID = c.CustomerID
 WHERE DATEADD(DAY,7, f.StartDate) = c.StartDate;	--4.Extract only the records WHERE trial's StartDate + 7days = churn's StartDate
+
 --5.Calculate the percentage relative to all customers, and relative to only CHURN records
 SELECT ct.PlanID, ct.PlanName,ct.ChurnStraightAfterTrial
 	,ROUND((ct.ChurnStraightAfterTrial/c.TotalRecords)*100,0) 'ChurnAfterTrialPERCENTAGE(all records)'
@@ -173,6 +174,7 @@ FROM Subscriptions s
 JOIN Plans p
 ON p.PlanID =s.PlanID
 WHERE LOWER(p.PlanName) = 'pro monthly'
+
 --2.Get the customers on BASIC MONTHLY plan into a seperate table
 SELECT s.*, p.PlanName
 INTO BasicMonthlyTABLE
@@ -180,6 +182,7 @@ FROM Subscriptions s
 JOIN Plans p
 ON p.PlanID =s.PlanID
 WHERE LOWER(p.PlanName) = 'basic monthly'
+
 --3.JOIN the two tables on CustomerID 
 SELECT COUNT(*) TotalCustomers		--5.COUNT all the records
 FROM ProMonthlyTable pr
