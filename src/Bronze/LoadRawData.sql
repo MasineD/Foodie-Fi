@@ -11,7 +11,7 @@
 */
 
 --Creating the Plans table
-CREATE PROCEDURE Bronze.LoadRawData AS
+CREATE OR ALTER PROCEDURE Bronze.LoadRawData AS
 BEGIN
 	BEGIN TRY
 	IF OBJECT_ID('Bronze.Plans','U') IS NOT NULL
