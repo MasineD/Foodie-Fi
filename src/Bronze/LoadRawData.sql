@@ -6,23 +6,22 @@
 	WARNING:
 	1.Running this script will delete any table with names similar to those mentioned above, provided that they are
 	  also placed in the FoodieFiDB databse
-	USAGE EXAMPLE:
-	EXEC Bronze.LoadRawData
+	USAGE EXAMPLE
+		EXEC Bronze.LoadRawData
 */
-
---Creating the Plans table
 CREATE OR ALTER PROCEDURE Bronze.LoadRawData AS
 BEGIN
 	BEGIN TRY
-	IF OBJECT_ID('Bronze.Plans','U') IS NOT NULL
-		DROP TABLE Bronze.Plans;
-	CREATE TABLE Bronze.Plans (
-	  PlanID INTEGER,
-	  PlanName VARCHAR(13),
-	  Price DECIMAL(5,2)
+	--Creating the Plans table
+	IF OBJECT_ID('Bronze.plans','U') IS NOT NULL
+		DROP TABLE Bronze.plans
+	CREATE TABLE Bronze.plans (
+	  plan_id INTEGER,
+	  plan_name VARCHAR(13),
+	  price DECIMAL(5,2)
 	);
 
-	INSERT INTO Bronze.Plans (PlanID, PlanName, Price)
+	INSERT INTO Bronze.plans (plan_id, plan_name, price)
 	VALUES
 	  ('0', 'trial', '0'),
 	  ('1', 'basic monthly', '9.90'),
@@ -31,15 +30,15 @@ BEGIN
 	  ('4', 'churn', null);
 
 	--Creating the Subscriptions table
-	IF OBJECT_ID(' Bronze.Subscriptions','U') IS NOT NULL
-		DROP TABLE  Bronze.Subscriptions
-	CREATE TABLE  Bronze.Subscriptions (
-	  CustomerID INTEGER,
-	  PlanID INTEGER,
-	  StartDate DATE
+	IF OBJECT_ID('Bronze.subscriptions','U') IS NOT NULL
+		DROP TABLE Bronze.subscriptions
+	CREATE TABLE Bronze.subscriptions (
+	  customer_id INTEGER,
+	  plan_id INTEGER,
+	  start_date DATE
 	);
 
-	INSERT INTO  Bronze.Subscriptions (CustomerID, PlanID, StartDate)
+	INSERT INTO Bronze.subscriptions (customer_id, plan_id, start_date)
 	VALUES
 	  ('1', '0', '2020-08-01'),
 	  ('1', '1', '2020-08-08'),
@@ -1006,8 +1005,8 @@ BEGIN
 	  ('362', '3', '2020-08-21'),
 	  ('363', '0', '2020-05-06')
 
-	  INSERT INTO  Bronze.Subscriptions
-	  (CustomerID, PlanID, StartDate)
+	  INSERT INTO Bronze.subscriptions
+	  (customer_id, plan_id, start_date)
 	VALUES
 	  ('363', '1', '2020-05-13'),
 	  ('363', '3', '2020-07-10'),
@@ -2006,7 +2005,7 @@ BEGIN
 	  ('742', '1', '2020-08-20'),
 	  ('742', '3', '2020-11-22')
 
-	INSERT INTO  Bronze.Subscriptions(CustomerID, PlanID, StartDate)
+	INSERT INTO Bronze.subscriptions(customer_id, plan_id, start_date)
 	VALUES
 	  ('743', '0', '2020-07-14'),
 	  ('743', '3', '2020-07-21'),
@@ -2700,6 +2699,10 @@ BEGIN
 	  ('1000', '4', '2020-06-04');
 	END TRY
 	BEGIN CATCH
-
+	PRINT '================ERROR OCCURED==================='
+	PRINT 'ERROR MESSAGE: ' +ERROR.MESSAGE()
+	PRINT 'ERROR NUMBER: ' + CAST(ERROR.NUMBER() AS VARCHAR)
+	PRINT 'ERROR STATE: ' + CAST(ERROR.STATE() AS VARCHAR)
+	PRINT '================================================'
 	END CATCH
 END
