@@ -43,7 +43,7 @@ WHERE LOWER(p.PlanName) = 'churn'	--2.Consider only the CHURN subscriptions
 
 -- ============== Question 5 ==============
 --3.Compute the percentage
-SELECT ChurnAfterTrial, ROUND((CAST(ChurnAfterTrial AS FLOAT)/(SELECT CAST(COUNT(*) AS FLOAT) FROM Silver.Subscriptions))*100,2) 'ChurnAfterTrial(%)'
+SELECT ChurnAfterTrial, ROUND((CAST(ChurnAfterTrial AS FLOAT)/(SELECT CAST(COUNT(*) AS FLOAT) FROM Silver.Subscriptions))*100,0) 'ChurnAfterTrial(%)'
 FROM (
 	SELECT COUNT(*) AS ChurnAfterTrial	
 	FROM (	--1.Get the next subscription's ID
@@ -54,7 +54,7 @@ FROM (
 ) AccessNextSubscription
 
 -- ============== Question 6 ==============
-SELECT COUNT(*) SubscriptionsAfterTrial		--2.Count all the records
+SELECT COUNT(*) SubscriptionsAfterTrial, ROUND((CAST(COUNT(*) AS FLOAT)/ (SELECT COUNT(*) FROM Silver.Subscriptions))*100,2) 'SubsscriptionsAfterTrial(%)'		--2.Count all the records
 FROM Silver.Subscriptions
 WHERE PlanID != 0	--1.Consider only the records where the plan is not Trial
 
