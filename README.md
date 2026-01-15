@@ -82,7 +82,7 @@ Moreover, the case study questions are as follows:
 
 ```
 	├── Foodie-Fi/:
-		 ├── src /: A text file that contains the answers to the case study questions
+		 ├── src /:
 			├── Bronze/:
 				├── CreateDB.sql:Contains the SQL code to create the database used to store data tables
 				└── CreateTables.sql: Contains the SQL code to create tables, and insert data into the tables
@@ -106,8 +106,11 @@ Moreover, the case study questions are as follows:
 	5.Select the unzipped folder
 	6.Execute the query in CreateDB.sql file
 	7.Execute the queries in CreateTables.sql file
-	8.Execute the queries in SectionA.sql, SectionB.sql, SectionC.sql, SectionD.sql in the order they are written
+	8.Execute the queries in CreateTables_Silver.sql file
+	9.Execute the queries in DataCleaning.sql file
+	10.Execute the queries in SectionA.sql, SectionB.sql, SectionC.sql, SectionD.sql in the order they are written
 
+	**You can alternatively open the AnswersToQuestions.txt file to see answers to the business questions**
 ## Project Status
 
 INCOMPLETE
