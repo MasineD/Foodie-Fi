@@ -81,18 +81,21 @@ Moreover, the case study questions are as follows:
 ## Folder Structure
 
 ```
-	├── Foodie-Fi:
-		 ├── src : A text file that contains the answers to the case study questions
-			├── AnswersToQuestions 
+	├── Foodie-Fi/:
+		 ├── src /: A text file that contains the answers to the case study questions
+			├── Bronze/:
+				├── CreateDB.sql:Contains the SQL code to create the database used to store data tables
+				└── CreateTables.sql: Contains the SQL code to create tables, and insert data into the tables
+			├── Gold/:
 				├── AnswersToQuestions.txt: Contains the Case Study questions and answers
 				├── SectionA.sql: Contains the cold sql code to answer Section A questions
 				├── SectionB.sql: Contains the cold sql code to answer Section B questions
 				├── SectionC.sql: Contains the cold sql code to answer Section C questions
 				└── SectionD.sql: Contains the cold sql code to answer Section D questions
-			├── Database
-				└── CreateDB.sql:Contains the SQL code to create the database used to store data tables
-			└── Tables
-				└── CreateTables.sql: Contains the SQL code to create tables, and insert data into the tables
+			└── Silver/:
+				├── CreateTables_Silver.sql: Contains the SQL code used to create the tables to store clean data 
+				└── DataCleaning.sql: Contains the SQL code used to clean the data loaded in the Bronze layer
+		└── ReadME.md: The file you are currently reading, contains information about the project
 ```
 ## How to run the SQL code
 
@@ -113,13 +116,15 @@ TO DO:
 
 	1.Section C:Challenge Payment Question
 
-## Contributors
+## About Me
 
-	1.Masine Donald
-		- SQL Developer
-		- Email: masinedonald@gmail.com
-		- Phone: +27 714 366 053
-				 +27 647 266 704
+I am a recent BSc graduate in Applied Mathematics and Computer Science from the University of Johannesburg. With this project, I was actively learning and practising SQL in preparation for junior data roles. 
+
+I welcome connections and conversations regarding opportunities, collaborations, or shared interests in technology and data. Please feel free to reach out through any of the following channels:
+
+*  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/donald-masine-17a430270/)  [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:masinedonald@gmail.com)  [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/27647266704)  [![Tableau](https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=Tableau&logoColor=white)](https://public.tableau.com/app/profile/donald.masine/vizzes)  [![freeCodeCamp](https://img.shields.io/badge/freeCodeCamp-0A0A23?style=for-the-badge&logo=freecodecamp&logoColor=white)](https://www.freecodecamp.org/masined)
+*  **Phone:** +27 71 436 6053
+
 
 ## Acknoledgements
 
