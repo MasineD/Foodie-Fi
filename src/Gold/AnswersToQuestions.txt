@@ -1,0 +1,55 @@
+						Section A:Customer Journey
+Question: Write a brief description about each customer's onboarding journey, considering the first 20 rows
+		  from the Subscriptions table
+Answer: Considering each customer's first subscription, it is evident that most- if not all, customers start 
+	    with a free trial. Following the free trial, most of them upgrade to a basic monthly or pro monthly 
+		plan. Only a few churn or upgrade to pro annual plan from the free trial.
+
+						Section B:Data Analysis Questions
+1.How many customers has Foodie-Fi ever had?
+	ANSWER:1000
+2.What is the monthly distribution of trial plan start_date values for our dataset - use the start of the month
+   as the group by value
+  * NOTE: Table is too long to display here. Please run the query in SectionB.sql script. We apologize for any
+   inconviniece that may result from this *
+3.What plan start_date values occur after the year 2020 for our dataset? Show the breakdown by count of events
+  for each plan_name
+  ANSWER: Basic Monthly - 8
+		  Pro Monthly - 60
+		  Pro Annual - 63
+		  Churn - 71
+4.What is the customer count and percentage of customers who have churned rounded to 1 decimal place?
+	ANSWER: Count - 307
+			Percentage - 11.58%
+5.How many customers have churned straight after their initial free trial - what percentage is this rounded to
+  the nearest whole number?
+  ANSWER: Count - 93
+		  Percentage(relative to all subscriptions) - 3%
+6.What is the number and percentage of customer plans after their initial free trial?
+	ANSWER: Count - 1650
+		    Percentage - 62.26%
+7.What is the customer count and percentage breakdown of all 5 plan_name values at 2020-12-31?
+	ANSWER: Trial - 1000 - 37.74%
+			Basic Monthly - 538 - 20.30%
+		    Pro Monthly - 479 - 18.08%
+		    Pro Annual - 195 - 7.36%
+		    Churn - 236 - 8.91%
+8.How many customers have upgraded to an annual plan in 2020?
+	ANSWER: 195
+9.How many days on average does it take for a customer to an annual plan from the day they join Foodie-Fi?
+	ANSWER: 104
+10.Can you further breakdown this average value into 30 day periods (i.e. 0-30 days, 31-60 days etc)
+	ANSWER: 0-30 days: 49
+			31-60 days: 24
+			61-90 days: 34
+			91-120 days: 35
+			121-150 days: 42
+			151-180 days: 36
+			181-210 days: 26
+			211-240 days: 4
+			241-270 days: 5
+			271-300 days: 1
+			301-330 days: 1
+			331-360 days: 1
+11.How many customers downgraded from a pro monthly to a basic monthly plan in 2020?
+	ANSWER: 163
